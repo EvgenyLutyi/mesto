@@ -1,0 +1,9 @@
+.element__content {
+    width: 282px;
+    height: 73px;
+    margin: 0px;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+}

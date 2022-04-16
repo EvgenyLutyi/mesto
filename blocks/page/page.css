@@ -1,0 +1,29 @@
+.page {
+    max-width: 1280px;
+    background-color: black;
+    background-size: 100%;
+    font-family: 'Inter', 'arial', sans-serif;
+    color: #FFFFFF;
+    margin: 0px 200px;
+}
+
+@media (min-width: 888px) and (max-width: 1270px) {
+    .page {
+        max-width: 1270px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 670px) and (max-width: 859px) {
+    .page {
+        max-width: 859px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 669px) {
+    .page {
+        max-width: 669px;
+        margin: auto;
+    }
+}
