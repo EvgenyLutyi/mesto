@@ -1,6 +1,6 @@
 Проект: Mesto
 
-https://evgenylutyi.github.io/russian-travel/index.html
+https://evgenylutyi.github.io/mesto/index.html
 
 Автор: Лютый Евгений
 
