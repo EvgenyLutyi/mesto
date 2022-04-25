@@ -1,6 +1,7 @@
 .element__like {
-    width: 22px;
+    width: 30px;
     height: 19px;
     margin: 0px;
-    background: url(../../../../images/Vector_like.png);
+    background: url(../../../images/Vector_like.png) no-repeat center;
+    border: none;
 }

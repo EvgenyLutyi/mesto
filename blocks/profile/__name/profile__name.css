@@ -5,6 +5,9 @@
     line-height: 48px;
     margin: 0px 0px 16px;
     grid-area: profile__info_name;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 @media (min-width: 320px) and (max-width: 1100px) {

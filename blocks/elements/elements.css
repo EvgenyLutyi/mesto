@@ -1,20 +1,21 @@
 .elements {
     max-width: 282px;
-    margin: 50px 0px 0px;
+    margin: 50px auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: 20px;
     grid-column-gap: 17px;
+    justify-content: center;
 }
 
-@media (min-width: 624px) and (max-width: 888px) {
+@media (min-width: 780px) and (max-width: 960px) {
     .elements {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media (max-width: 623px) {
+@media (min-width: 320px) and (max-width: 780px) {
     .elements {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(1, 1fr);
     }
 }
