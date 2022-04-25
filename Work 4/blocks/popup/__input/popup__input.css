@@ -16,7 +16,7 @@
     outline: none;
 }
 
-@media (min-width: 319px) and (max-width: 500) {
+@media (min-width: 320px) and (max-width: 600px) {
     .popup__input {
         width: 238px;
     }

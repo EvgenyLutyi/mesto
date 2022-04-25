@@ -7,7 +7,7 @@
     position: relative;
 }
 
-@media (min-width: 320px) and (max-width: 600) {
+@media (min-width: 320px) and (max-width: 600px) {
     .popup__body {
         width: 282px;
     }
