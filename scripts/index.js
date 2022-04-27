@@ -2,25 +2,30 @@ const openPopup = document.getElementById('profile_button');
 const closePopup = document.getElementById('popup_close');
 const popup = document.getElementById('popup');
 
-openPopup.addEventListener('click', function(e) {
+function popupOpen(e) {
     e.preventDefault();
     popup.classList.add('active');
-})
+}
 
-closePopup.addEventListener('click', () => {
+function popupClose() {
     popup.classList.remove('active');
-})
+}
 
+openPopup.addEventListener('click', popupOpen);
+closePopup.addEventListener('click', popupClose);
 
 let nameInput = document.querySelector('.popup__input_name');
-const jobInput = document.querySelector('.popup__input_job');
+let jobInput = document.querySelector('.popup__input_job');
 const popupButton = document.querySelector('.popup__button');
 
-const nameNode = document.getElementById('name');
-const jobNode = document.getElementById('job');
+let nameNode = document.getElementById('name');
+let jobNode = document.getElementById('job');
 
-popupButton.addEventListener('click', () => {
+function popupEdit(e) {
+    e.preventDefault();
     nameNode.textContent = nameInput.value;
     jobNode.textContent = jobInput.value;
     popup.classList.remove('active');
-})
+}
+
+popupButton.addEventListener('click', popupEdit);

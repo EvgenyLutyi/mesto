@@ -6,15 +6,3 @@
     font-family: 'Inter', 'arial', sans-serif;
     color: #FFFFFF;
 }
-
-@media (min-width: 670px) and (max-width: 859px) {
-    .page {
-        max-width: 470px;
-    }
-}
-
-@media (min-width: 320px) and (max-width: 669px) {
-    .page {
-        max-width: 470px;
-    }
-}

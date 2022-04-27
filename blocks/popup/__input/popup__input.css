@@ -1,6 +1,6 @@
 .popup__input {
     display: block;
-    margin: 0px 36px 30px;
+    margin: 0px auto 30px;
     width: 358px;
     background-color: #fff;
     outline: none;
