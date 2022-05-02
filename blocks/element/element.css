@@ -1,6 +1,7 @@
 .element {
     max-width: 282px;
     max-height: 361px;
+    position: relative;
 }
 
 @media (min-width: 623px) and (max-width: 888px) {

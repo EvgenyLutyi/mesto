@@ -26,3 +26,7 @@
 @import url(../blocks/popup/__close/popup__close.css);
 @import url(../blocks/popup/__button/popup__button.css);
 @import url(../blocks/popup/__body/popup__body.css);
+@import url(../blocks/element/__pic/_trash/element__pic_trash.css);
+@import url(../blocks/popup/__img-zoom/popup__zoom.css);
+@import url(../blocks/popup/__description/popup__description.css);
+@import url(../blocks/popup/__body/_zoom/popup__body_zoom.css);

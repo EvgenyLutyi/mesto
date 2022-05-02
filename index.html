@@ -21,52 +21,11 @@
                 <p class="profile__profession" id="job">Исследователь океана</p>
                 <button type="button" class="profile__button" id="profile_button"></button>
             </div>
-            <button type="button" class="profile__edit-button"></button>
+            <button type="button" class="profile__edit-button" id="profile_edit-button"></button>
         </section>
 
         <section class="elements">
-            <div class="element">
-                <img class="element__pic" src="./images/k4r.png" alt="Карачаевск">
-                <div class="element__content">
-                    <h2 class="element__name">Карачаевск</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__pic" src="./images/elbrus.png" alt="Гора Эльбрус">
-                <div class="element__content">
-                    <h2 class="element__name">Гора Эльбрус</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__pic" src="./images/dombay.png" alt="Домбай">
-                <div class="element__content">
-                    <h2 class="element__name">Домбай</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__pic" src="./images/elbrus.png" alt="Гора Эльбрус">
-                <div class="element__content">
-                    <h2 class="element__name">Гора Эльбрус</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__pic" src="./images/dombay.png" alt="Домбай">
-                <div class="element__content">
-                    <h2 class="element__name">Домбай</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-            <div class="element">
-                <img class="element__pic" src="./images/k4r.png" alt="Карачаево-Черкесская республика">
-                <div class="element__content">
-                    <h2 class="element__name">Карачаево-Черкесская республика</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
+
         </section>
 
     </main>
@@ -76,7 +35,6 @@
     </footer>
 
     <div class="popup" id="popup">
-
         <div class="popup__body" id="popup_body">
             <h2 class="popup__title">Редактировать профиль</h2>
             <form class="form" name="form">
@@ -86,10 +44,28 @@
             </form>
             <button type="button" class="popup__close" id="popup_close"></button>
         </div>
-
-
-
     </div>
+
+    <div class="popup" id="popupImageZoom">
+        <div class="popup__body_zoom">
+            <button type="button" class="popup__close" id="popupCloseZoom"></button>
+            <img class="popup__img-zoom" src="" alt="">
+            <h2 class="popup__description"></h2>
+        </div>
+    </div>
+
+    <div class="popup" id="popupAddForm">
+        <div class="popup__body" id="popupBodyAddForm">
+            <h2 class="popup__title">Новое место</h2>
+            <form class="form" name="formAdd">
+                <input id="input_name" class="popup__input popup__input_name" type="text" placeholder="Название">
+                <input id="input_url" class="popup__input popup__input_job" type="text" placeholder="Ссылка на картинку">
+                <button type="button" class="popup__button" id="popupButtonAddForm">Сохранить</button>
+            </form>
+            <button type="button" class="popup__close" id="popupCloseAddForm"></button>
+        </div>
+    </div>
+
     <script src="./scripts/index.js"></script>
 </body>
 

@@ -9,6 +9,7 @@
     opacity: 0;
     visibility: hidden;
     display: flex;
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 .popup.active {
