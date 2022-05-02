@@ -1,9 +1,0 @@
-.popap__close {
-    position: absolute;
-    top: -40px;
-    right: -40px;
-    cursor: pointer;
-    background: url(../../../images/Close-Icon.png) no-repeat center;
-    width: 30px;
-    height: 30px;
-}
