@@ -1,0 +1,12 @@
+.element {
+    max-width: 282px;
+    max-height: 361px;
+    position: relative;
+}
+
+@media (min-width: 623px) and (max-width: 888px) {
+    .element {
+        max-width: calc(100% - 38px);
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

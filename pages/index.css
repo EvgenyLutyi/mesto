@@ -29,4 +29,4 @@
 @import url(../blocks/element/__pic/_trash/element__pic_trash.css);
 @import url(../blocks/popup/__img-zoom/popup__zoom.css);
 @import url(../blocks/popup/__description/popup__description.css);
-@import url(../blocks/popup/__body/_zoom/popup__body_zoom.css);
+@import url(../blocks/popup/__zoom/popup__zoom.css);
