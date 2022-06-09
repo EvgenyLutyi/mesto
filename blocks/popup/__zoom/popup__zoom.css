@@ -1,0 +1,7 @@
+.popup__zoom {
+    margin: auto;
+    max-width: 70vw;
+    max-height: 70vh;
+    text-align: left;
+    position: relative;
+}

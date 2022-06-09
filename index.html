@@ -24,9 +24,16 @@
             <button type="button" class="profile__edit-button" id="profile_edit-button"></button>
         </section>
 
-        <section class="elements">
-
-        </section>
+        <template class="elements">
+            <div class="element">
+                <img class="element__pic">
+                <button class="element__pic_trash"></button>
+                <div class="element__content">
+                    <h2 class="element__name"></h2>
+                    <button type="button" class="element__like"></button>
+                </div>
+            </div>
+        </template>
 
     </main>
 
@@ -34,15 +41,15 @@
         <p class="footer__author">&copy; 2022. Mesto Russia</p>
     </footer>
 
-    <div class="popup" id="popup">
+    <div class="popup" id="popup_profile">
         <div class="popup__body" id="popup_body">
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form class="form" name="form">
-                <input class="popup__input popup__input_name" type="text" placeholder="Имя" value="Жак-Ив Кусто">
-                <input class="popup__input popup__input_job" type="text" placeholder="Деятельность" value="Исследователь океана">
-                <button class="popup__button">Сохранить</button>
+            <form class="form" name="form" id="editForm">
+                <input required class="popup__input popup__input_name" type="text" placeholder="Имя" value="Жак-Ив Кусто">
+                <input required class="popup__input popup__input_job" type="text" placeholder="Деятельность" value="Исследователь океана">
+                <button type="submit" class="popup__button">Сохранить</button>
             </form>
-            <button type="button" class="popup__close" id="popup_close"></button>
+            <button type="button" class="popup__close" id="popup_profile_close"></button>
         </div>
     </div>
 
@@ -55,16 +62,18 @@
     </div>
 
     <div class="popup" id="popupAddForm">
-        <div class="popup__body" id="popupBodyAddForm">
+        <div class="popup__body">
             <h2 class="popup__title">Новое место</h2>
-            <form class="form" name="formAdd">
-                <input id="input_name" class="popup__input popup__input_name" type="text" placeholder="Название">
-                <input id="input_url" class="popup__input popup__input_job" type="url" placeholder="Ссылка на картинку">
-                <button type="button" class="popup__button" id="popupButtonAddForm">Сохранить</button>
+            <form class="form" name="formAdd" id="createElementForm">
+                <input required id="input_name" class="popup__input popup__input_name" type="text" placeholder="Название">
+                <input required id="input_url" class="popup__input popup__input_job" type="url" placeholder="Ссылка на картинку">
+                <button type="submit" class="popup__button" id="popupButtonAddForm">Сохранить</button>
             </form>
             <button type="button" class="popup__close" id="popupCloseAddForm"></button>
         </div>
     </div>
+
+
 
     <script src="./scripts/index.js"></script>
 </body>
