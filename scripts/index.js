@@ -54,8 +54,6 @@ function openPopup(modal) {
 //-> Закрытие попапа
 function closePopup(modal) {
     modal.classList.remove('active');
-    nameInputAddCard.value = '';
-    linkInputAddCard.value = '';
 }
 
 //- измеение данных формы
@@ -74,9 +72,9 @@ const toggleLike = (e) => {
 
 const initPopupImage = (e) => {
     popupZoomTagImg.src = e.target.src;
+    popupZoomTagImg.alt = e.target.alt;
     popupZoomText.textContent = e.target.alt;
     openPopup(popupZoom);
-
 }
 
 //-> Удаление element !
@@ -123,7 +121,11 @@ const handlerAddCard = (e) => {
 profileSave.addEventListener('click', saveProfile);
 profileButton.addEventListener('click', () => openPopup(popupProfile));
 popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
-popupAddFormOpen.addEventListener('click', () => openPopup(popupAddForm));
+popupAddFormOpen.addEventListener('click', () => {
+    openPopup(popupAddForm)
+    nameInputAddCard.value = '';
+    linkInputAddCard.value = '';
+});
 popupAddFormClose.addEventListener('click', () => closePopup(popupAddForm));
 popupZoomCloseButton.addEventListener('click', () => closePopup(popupZoom));
 addForm.addEventListener('submit', handlerAddCard);
