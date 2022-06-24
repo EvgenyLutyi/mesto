@@ -24,6 +24,7 @@ const initialCards = [{
     }
 ];
 const popup = document.querySelector('.popup');
+const popups = document.querySelectorAll('.popup');
 const popupProfile = document.getElementById('popup_profile');
 const profileButton = document.getElementById('profile_button');
 const profileSave = document.querySelector('.popup__button');
@@ -54,6 +55,18 @@ function openPopup(modal) {
 //-> Закрытие попапа
 function closePopup(modal) {
     modal.classList.remove('active');
+}
+
+function closeEsc(event) {
+    if (event.key === 'Escape') {
+        popups.forEach((item) => closePopup(item))
+    }
+}
+
+const closePopupByOverlay = (e) => {
+    if (e.target !== e.currentTarget) {
+        closePopup(e.target)
+    }
 }
 
 //- измеение данных формы
@@ -129,3 +142,5 @@ popupAddFormOpen.addEventListener('click', () => {
 popupAddFormClose.addEventListener('click', () => closePopup(popupAddForm));
 popupZoomCloseButton.addEventListener('click', () => closePopup(popupZoom));
 addForm.addEventListener('submit', handlerAddCard);
+document.addEventListener('click', closePopupByOverlay);
+document.addEventListener('keydown', closeEsc);
