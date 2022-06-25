@@ -44,8 +44,8 @@ const popupZoomCloseButton = document.getElementById('popupCloseZoom'); //- По
 const elementRemoveButton = document.querySelector('.element__pic_trash'); //-> Удаление element !
 const elements = document.querySelector('.elements'); //-> Работа с массивом по добавлению element и действия с ними
 const addForm = document.getElementById('createElementForm');
-const nameInputAddCard = document.getElementById('input_name');
-const linkInputAddCard = document.getElementById('input_url');
+const nameInputAddCard = document.getElementById('title');
+const linkInputAddCard = document.getElementById('url');
 const forms = document.querySelector('.form');
 
 //-> Открытие попапа
