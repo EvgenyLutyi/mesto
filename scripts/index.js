@@ -23,7 +23,7 @@ const initialCards = [{
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-const popup = document.querySelector('.popup');
+
 const popups = document.querySelectorAll('.popup');
 const popupProfile = document.getElementById('popup_profile');
 const profileButton = document.getElementById('profile_button');
@@ -51,10 +51,14 @@ const forms = document.querySelector('.form');
 //-> Открытие попапа
 function openPopup(modal) {
     modal.classList.add('active');
+    document.addEventListener('click', closePopupByOverlay);
+    document.addEventListener('keydown', closeEsc);
 }
 //-> Закрытие попапа
 function closePopup(modal) {
     modal.classList.remove('active');
+    removeEventListener('click', closePopupByOverlay);
+    removeEventListener('keydown', closeEsc);
 }
 
 function closeEsc(event) {
@@ -81,7 +85,6 @@ function saveProfile(e) {
 const toggleLike = (e) => {
     e.target.classList.toggle('active');
 }
-
 
 const initPopupImage = (e) => {
     popupZoomTagImg.src = e.target.src;
@@ -110,7 +113,6 @@ const createCard = (initCard) => {
     elementLike.addEventListener('click', toggleLike);
 
     return card;
-
 }
 
 function addCard(card) {
@@ -129,18 +131,19 @@ const handlerAddCard = (e) => {
     closePopup(popupAddForm);
 }
 
-
-
 profileSave.addEventListener('click', saveProfile);
-profileButton.addEventListener('click', () => openPopup(popupProfile));
+profileButton.addEventListener('click', () => {
+    openPopup(popupProfile)
+    nameInput.value = nameNode.textContent;
+    jobInput.value = jobNode.textContent;
+});
 popupCloseProfile.addEventListener('click', () => closePopup(popupProfile));
 popupAddFormOpen.addEventListener('click', () => {
     openPopup(popupAddForm)
     nameInputAddCard.value = '';
     linkInputAddCard.value = '';
 });
+
 popupAddFormClose.addEventListener('click', () => closePopup(popupAddForm));
 popupZoomCloseButton.addEventListener('click', () => closePopup(popupZoom));
 addForm.addEventListener('submit', handlerAddCard);
-document.addEventListener('click', closePopupByOverlay);
-document.addEventListener('keydown', closeEsc);

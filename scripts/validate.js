@@ -1,9 +1,3 @@
-const formElement = document.querySelector('.form');
-const formInput = document.querySelectorAll('.form__input');
-const formError = formElement.querySelector(`.${formInput.id}-error`);
-
-
-
 const isValidInput = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage);
@@ -41,7 +35,7 @@ const isButtonDisable = (inputList, formElement) => {
 const addValidationListner = (inputList, formElement) => {
     inputList.forEach((inputElement) => {
         //Первичная валидация каждого поля
-        isValidInput(formElement, inputElement);
+        // isValidInput(formElement, inputElement);????????????????????????????????????
         inputElement.addEventListener('input', () => {
             // Валидируем поля при каждом вводе
             isValidInput(formElement, inputElement);
@@ -49,36 +43,42 @@ const addValidationListner = (inputList, formElement) => {
             isButtonDisable(inputList, formElement);
         });
     });
-
 }
 
-
-const setEventListeners = (formElement) => {
-    const inputList = Array.from(formElement.querySelectorAll('.form__input'));
+const setEventListeners = (formElement, inputSelector) => {
+    const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     // Валидируем кнопку при инициализации
     isButtonDisable(inputList, formElement);
     addValidationListner(inputList, formElement);
 };
 
-const enableValidation = () => {
-    const formList = Array.from(document.querySelectorAll('.form'));
+const enableValidation = (formSelector, inputSelector) => {
+    const formList = Array.from(document.querySelectorAll(formSelector));
     formList.forEach((formElement) => {
         // Отменяет очищение формы при нажатии на сабмит
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
 
-        setEventListeners(formElement);
+        setEventListeners(formElement, inputSelector);
     });
 };
 
-enableValidation();
-
-
 // Функция принимает массив полей
-
 const hasInvalidInput = (inputList) => {
     return inputList.some((inputElement) => {
         return !inputElement.validity.valid;
     })
 };
+
+function initPopupValidation(formSelector, inputSelector) {
+    const formElement = document.getElementById(formSelector);
+    const inputList = Array.from(formElement.querySelectorAll(inputSelector));
+    const buttonOpenAddPopup = document.querySelector('.profile__edit-button');
+    buttonOpenAddPopup.addEventListener('click', () => {
+        isButtonDisable(inputList, formElement);
+    });
+};
+
+enableValidation('.form', '.form__input');
+initPopupValidation('createElementForm', '.form__input');
