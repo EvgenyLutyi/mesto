@@ -8,20 +8,21 @@ const isValidInput = (formElement, inputElement) => {
 
 const showInputError = (formElement, inputElement, errorMessage) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add('form__input_type_error');
+    inputElement.classList.add('popup__input_type_error');
     errorElement.textContent = errorMessage;
     errorElement.classList.add('form__input-error_active');
 };
 
 const hideInputError = (formElement, inputElement) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove('form__input_type_error');
+    inputElement.classList.remove('popup__input_type_error');
     errorElement.classList.remove('form__input-error_active');
     errorElement.textContent = '';
 };
 
 // Проверка кнопки
 const isButtonDisable = (inputList, formElement) => {
+    // Кнопка сохранить
     const buttonElement = formElement.querySelector('.form__submit');
     buttonElement.disabled = false;
     //Если хотя бы одно поле не валидно дизеблим кнопку
@@ -46,20 +47,26 @@ const addValidationListner = (inputList, formElement) => {
 }
 
 const setEventListeners = (formElement, inputSelector) => {
+    // все инпуты
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     // Валидируем кнопку при инициализации
     isButtonDisable(inputList, formElement);
     addValidationListner(inputList, formElement);
 };
 
-const enableValidation = (formSelector, inputSelector) => {
+const enableValidation = ({
+    formSelector,
+    inputSelector,
+    creationFormSelector
+}) => {
+    initPopupValidation(creationFormSelector, inputSelector)
     const formList = Array.from(document.querySelectorAll(formSelector));
+
     formList.forEach((formElement) => {
         // Отменяет очищение формы при нажатии на сабмит
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
-
         setEventListeners(formElement, inputSelector);
     });
 };
@@ -80,5 +87,8 @@ function initPopupValidation(formSelector, inputSelector) {
     });
 };
 
-enableValidation('.form', '.form__input');
-initPopupValidation('createElementForm', '.form__input');
+enableValidation({
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    creationFormSelector: 'createElementForm',
+});

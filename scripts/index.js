@@ -47,6 +47,7 @@ const addForm = document.getElementById('createElementForm');
 const nameInputAddCard = document.getElementById('title');
 const linkInputAddCard = document.getElementById('url');
 const forms = document.querySelector('.form');
+const popupInputs = document.querySelectorAll('.popup__input');
 
 //-> Открытие попапа
 function openPopup(modal) {
