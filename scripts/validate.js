@@ -1,22 +1,22 @@
-const isValidInput = (formElement, inputElement) => {
+const isValidInput = (formElement, inputElement, inputError, inputErrorActive) => {
     if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage);
+        showInputError(formElement, inputElement, inputElement.validationMessage, inputError, inputErrorActive);
     } else {
-        hideInputError(formElement, inputElement);
+        hideInputError(formElement, inputElement, inputError, inputErrorActive);
     }
 };
 
-const showInputError = (formElement, inputElement, errorMessage) => {
+const showInputError = (formElement, inputElement, errorMessage, inputError, inputErrorActive) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.add('popup__input_type_error');
+    inputElement.classList.add(inputError);
     errorElement.textContent = errorMessage;
-    errorElement.classList.add('form__input-error_active');
+    errorElement.classList.add(inputErrorActive);
 };
 
-const hideInputError = (formElement, inputElement) => {
+const hideInputError = (formElement, inputElement, inputError, inputErrorActive) => {
     const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-    inputElement.classList.remove('popup__input_type_error');
-    errorElement.classList.remove('form__input-error_active');
+    inputElement.classList.remove(inputError);
+    errorElement.classList.remove(inputErrorActive);
     errorElement.textContent = '';
 };
 
@@ -33,31 +33,33 @@ const isButtonDisable = (inputList, formElement) => {
     })
 };
 
-const addValidationListner = (inputList, formElement) => {
+const addValidationListner = (inputList, formElement, inputError, inputErrorActive) => {
     inputList.forEach((inputElement) => {
         //Первичная валидация каждого поля
         // isValidInput(formElement, inputElement);????????????????????????????????????
         inputElement.addEventListener('input', () => {
             // Валидируем поля при каждом вводе
-            isValidInput(formElement, inputElement);
+            isValidInput(formElement, inputElement, inputError, inputErrorActive);
             // Валидируем кнопку при каждом вводе
             isButtonDisable(inputList, formElement);
         });
     });
 }
 
-const setEventListeners = (formElement, inputSelector) => {
+const setEventListeners = (formElement, inputSelector, inputError, inputErrorActive) => {
     // все инпуты
     const inputList = Array.from(formElement.querySelectorAll(inputSelector));
     // Валидируем кнопку при инициализации
     isButtonDisable(inputList, formElement);
-    addValidationListner(inputList, formElement);
+    addValidationListner(inputList, formElement, inputError, inputErrorActive);
 };
 
 const enableValidation = ({
     formSelector,
     inputSelector,
-    creationFormSelector
+    creationFormSelector,
+    inputError,
+    inputErrorActive
 }) => {
     initPopupValidation(creationFormSelector, inputSelector)
     const formList = Array.from(document.querySelectorAll(formSelector));
@@ -67,7 +69,7 @@ const enableValidation = ({
         formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
         });
-        setEventListeners(formElement, inputSelector);
+        setEventListeners(formElement, inputSelector, inputError, inputErrorActive);
     });
 };
 
@@ -91,4 +93,6 @@ enableValidation({
     formSelector: '.form',
     inputSelector: '.form__input',
     creationFormSelector: 'createElementForm',
+    inputError: 'popup__input_type_error',
+    inputErrorActive: 'form__input-error_active'
 });
